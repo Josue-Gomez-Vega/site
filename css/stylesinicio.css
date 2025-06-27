@@ -1,0 +1,108 @@
+/* Centrar todo el contenido */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff0f5;
+  color: #e60073;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+/* Botón corazón */
+#heartBtn {
+  position: relative;
+  width: 90px;   /* reducido de 100px a 90px */
+  height: 90px;
+  background: #e60073;
+  transform: rotate(-45deg);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  animation: heartbeat 1.5s infinite ease-in-out;
+  transform-origin: center center;
+  margin: 30px 0; /* separación arriba y abajo */
+}
+
+/* Círculo izquierdo y derecho */
+#heartBtn::before,
+#heartBtn::after {
+  content: "";
+  position: absolute;
+  width: 90px;   /* igual que el ancho del botón */
+  height: 90px;
+  background: #e60073;
+  border-radius: 50%;
+}
+
+/* Círculo izquierdo */
+#heartBtn::before {
+  top: -45px;
+  left: 0;
+}
+
+/* Círculo derecho */
+#heartBtn::after {
+  top: 0;
+  left: 45px;
+}
+
+/* Animación latido */
+@keyframes heartbeat {
+  0%, 100% {
+    transform: rotate(-45deg) scale(1);
+  }
+  25% {
+    transform: rotate(-45deg) scale(1.08);
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.15);
+  }
+  75% {
+    transform: rotate(-45deg) scale(1.08);
+  }
+}
+
+/* Pulso extra al hacer clic */
+.pulse-on-click {
+  animation: pulseClick 0.6s ease forwards;
+}
+
+@keyframes pulseClick {
+  0% {
+    transform: rotate(-45deg) scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  #heartBtn {
+    width: 70px;
+    height: 70px;
+    margin: 25px 0; /* también ajustamos en responsive */
+  }
+
+  #heartBtn::before,
+  #heartBtn::after {
+    width: 70px;
+    height: 70px;
+  }
+
+  #heartBtn::before {
+    top: -35px;
+    left: 0;
+  }
+
+  #heartBtn::after {
+    top: 0;
+    left: 35px;
+  }
+}
