@@ -6,6 +6,6 @@ heartBtn.addEventListener('click', () => {
   heartBtn.classList.add('pulse-on-click');
 
   setTimeout(() => {
-    window.location.href = '../html/principal.html';
+    window.location.href = 'html/principal.html';
   }, 600);
 });
